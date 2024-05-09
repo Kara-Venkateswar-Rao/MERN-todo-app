@@ -6,7 +6,13 @@ const app = express();
 
 require("./databse");
 
-app.use(cors());
+app.use(cors(
+  {
+    origin: ['mern-todo-backend-six.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'GELETE'],
+    credentials: true,  
+  }
+));
 app.use(express.json());
 
 app.use("/api/todos", blogRouter);
