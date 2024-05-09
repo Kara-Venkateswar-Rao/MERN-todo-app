@@ -16,13 +16,13 @@ function Todo() {
   async function handelSaveToDatabase() {
     const response = isEdit
       ? await axios.put(
-          `http://localhost:4004/api/todos/edit/${location.state.currentTodo._id}`,
+          `mern-todo-backend-six.vercel.app/todos/edit/${location.state.currentTodo._id}`,
           {
             title: todoData.title,
             todo: todoData.todo,
           }
         )
-      : await axios.post(`http://localhost:4004/api/todos/add`, {
+      : await axios.post(`mern-todo-backend-six.vercel.app/todos/add`, {
           title: todoData.title,
           todo: todoData.todo,
         });
@@ -40,7 +40,7 @@ function Todo() {
   }
 
   async function fetchTodoLists() {
-    const response = await axios.get(`http://localhost:4004/api/todos`);
+    const response = await axios.get(`mern-todo-backend-six.vercel.app/todos`);
     const result = await response.data;
 
     if (result) {
@@ -53,7 +53,7 @@ function Todo() {
   async function handelDeleteTodo(id) {
     console.log(id);
     const response = await axios.delete(
-      `http://localhost:4004/api/todos/delete/${id}`
+      `mern-todo-backend-six.vercel.app/todos/delete/${id}`
     );
 
     const result = await response.data;
