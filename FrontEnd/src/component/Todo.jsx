@@ -16,13 +16,13 @@ axios.defaults.withCredentials = true;
   async function handelSaveToDatabase() {
     const response = isEdit
       ? await axios.put(
-          `https://mern-todo-backend-six.vercel.app/edit/${location.state.currentTodo._id}`,
+          `https://mern-todo-backend-six.vercel.app/${location.state.currentTodo._id}`,
           {
             title: todoData.title,
             todo: todoData.todo,
           }
         )
-      : await axios.post(`https://mern-todo-backend-six.vercel.app/add`, {
+      : await axios.post(`https://mern-todo-backend-six.vercel.app`, {
           title: todoData.title,
           todo: todoData.todo,
         });
@@ -53,7 +53,7 @@ axios.defaults.withCredentials = true;
   async function handelDeleteTodo(id) {
     console.log(id);
     const response = await axios.delete(
-      `https://mern-todo-backend-six.vercel.app/delete/${id}`
+      `https://mern-todo-backend-six.vercel.app/${id}`
     );
 
     const result = await response.data;
