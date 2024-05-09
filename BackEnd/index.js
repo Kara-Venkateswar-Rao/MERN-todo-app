@@ -9,7 +9,7 @@ require("./databse");
 app.use(cors(
   {
     origin: ['https://mern-todo-frontend-lac.vercel.app'],
-    methods: ['GET', 'POST', 'PUT', 'GELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,  
   }
 ));
